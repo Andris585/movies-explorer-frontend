@@ -2,10 +2,11 @@
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  max-width: 1140px;
+  max-width: 1280px;
   width: 100%;
   margin: 0 auto;
-  padding: 0 0 105px 0;
+  padding: 0 70px 105px;
+  box-sizing: border-box;
 }
 
 .portfolio__title {
@@ -61,10 +62,9 @@
   padding: 5px 5px 0 0;
 }
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 800px) {
   .portfolio {
-    max-width: 668px;
-    padding-bottom: 90px;
+    padding: 0 50px 90px;
   }
 
   .portfolio__title {
@@ -87,10 +87,9 @@
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 450px) {
   .portfolio {
-    max-width: 292px;
-    padding-bottom: 70px;
+    padding: 0 18px 70px;
   }
 
   .portfolio__title {

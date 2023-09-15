@@ -3,10 +3,11 @@
   flex-direction: column;
   flex-wrap: nowrap;
   align-items: center;
-  max-width: 1140px;
+  max-width: 1280px;
   width: 100%;
   margin: 0 auto;
-  padding: 80px 0 20px 0;
+  padding: 80px 70px 20px;
+  box-sizing: border-box;
 }
 
 .footer__title {
@@ -69,22 +70,15 @@
   opacity: .6;
 }
 
-@media screen and (max-width: 1035px) {
+@media screen and (max-width: 800px) {
   .footer {
-    max-width: 980px;
+    padding: 62px 50px 20px;
   }
 }
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 450px) {
   .footer {
-    max-width: 708px;
-    padding: 62px 0 20px 0;
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .footer {
-    max-width: 300px;
+    padding: 0 18px 0;
   }
   .footer__title {
     width: 300px;

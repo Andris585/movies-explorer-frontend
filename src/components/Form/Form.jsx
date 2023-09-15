@@ -12,7 +12,7 @@ function Form(props) {
         <img className="auth__img" src={headerLogo} alt="Логотип" />
       </Link>
       <form className="auth__form">
-        <h2 className="auth__title">{props.title}</h2>
+        <h1 className="auth__title">{props.title}</h1>
         <div className="auth__inputs">
           {props.children}
           <label className="auth__item">

@@ -6,10 +6,11 @@
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  max-width: 1140px;
+  max-width: 1280px;
   width: 100%;
   margin: 0 auto;
-  padding: 100px 0;
+  padding: 100px 70px;
+  box-sizing: border-box;
 }
 
 .techs__title {
@@ -47,7 +48,7 @@
 }
 
 .techs__text {
-  width: 460px;
+  max-width: 460px;
   margin: 0;
   padding: 0;
   text-align: center;
@@ -61,6 +62,8 @@
 .techs__list {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  width: 100%;
   gap: 10px;
   margin: 0;
   padding: 100px 0 0 0;
@@ -81,10 +84,10 @@
   letter-spacing: -0.56px;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 800px) {
   .techs__container {
     max-width: 668px;
-    padding: 91px 0;
+    padding: 91px 50px;
   }
 
   .techs__content {
@@ -102,7 +105,8 @@
   }
 
   .techs__list {
-    padding-top: 83px;
+    padding: 83px 10px 0;
+    box-sizing: border-box;
   }
 
   .techs__list-item {
@@ -115,19 +119,18 @@
 @media screen and (max-width: 668px) {
   .techs__list {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 84px);
     padding-top: 50px;
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 450px) {
   .techs {
     background: #202020;
   }
   
   .techs__container {
-    max-width: 284px;
-    padding: 71px 0;
+    padding: 71px 18px;
   }
 
   .techs__title {
@@ -142,7 +145,7 @@
   }
 
   .techs__title-info {
-    width: 292px;
+    max-width: 292px;
     padding-bottom: 24px;
     font-size: 30px;
     line-height: normal;
@@ -150,7 +153,7 @@
   }
 
   .techs__text {
-    width: 292px;
+    max-width: 292px;
     font-size: 11px;
     line-height: 16px;
     letter-spacing: -0.44px;

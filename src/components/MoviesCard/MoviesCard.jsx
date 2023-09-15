@@ -2,13 +2,13 @@ import "./MoviesCard.css";
 import movieImage from "../../images/movie-img.jpg";
 import { useLocation } from "react-router-dom";
 
-function MoviesCard() {
+function MoviesCard(props) {
   const { pathname } = useLocation();
 
   return (
     <li className="card">
       <div className="card__container">
-        <img className="card__img" src={movieImage} alt="обложка" />
+        <img className="card__img" src={movieImage} alt={props.name} />
         <div className="card__info">
           <h2 className="card__title">Пи Джей Харви: A dog called money</h2>
           {pathname === "/saved-movies" 

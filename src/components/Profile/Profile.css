@@ -114,7 +114,7 @@
   font-weight: 500;
   line-height: normal;
   color: #FFF;
-  transition: opacity .7s linear;
+  transition: opacity .4s linear;
 }
 
 .profile__btn-save:hover {
@@ -133,7 +133,7 @@
   font-weight: 400;
   line-height: normal;
   color: #FFF;
-  transition: opacity .7s linear;
+  transition: opacity .4s linear;
 }
 
 .profile__btn-edit:hover {
@@ -143,15 +143,15 @@
 
 .profile__btn-signout {
   background-color: #202020;
-  border: none;
-  margin: 0;
+  margin: 0 auto;
+  text-decoration: none;
   padding: 16px 0 0;
   font-size: 13px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
   color: #EE3465;
-  transition: opacity .7s linear;
+  transition: opacity .4s linear;
 }
 
 .profile__btn-signout:hover {

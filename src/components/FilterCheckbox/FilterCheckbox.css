@@ -28,6 +28,11 @@
   transition-duration: .4s;
 }
 
+.checkbox__style:hover {
+  cursor: pointer;
+  opacity: .6;
+}
+
 .checkbox__style:before {
   content: '';
   position: absolute;

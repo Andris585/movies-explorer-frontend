@@ -1,10 +1,11 @@
+import { Link } from "react-router-dom";
 import "./Profile.css";
 
 function Profile() {
   return (
     <section className="profile">
       <form className="profile__form">
-        <h2 className="profile__title">Привет, Андрис!</h2>
+        <h1 className="profile__title">Привет, Андрис!</h1>
         <div className="profile__inputs">
           <div className="profile__input-container profile__input-container_type_name">
             <p className="profile__text">Имя</p>
@@ -38,7 +39,13 @@ function Profile() {
           <span className="profile__error" type="text"></span>
           <button type="submit" className="profile__btn-save">Сохранить</button>
           <button type="button" className="profile__btn-edit">Редактировать</button>
-          <button type="button" className="profile__btn-signout">Выйти из аккаунта</button>
+          <Link 
+            to="/" 
+            replace 
+            className="profile__btn-signout"
+            >
+              Выйти из аккаунта
+          </Link>
         </div>
       </form>
     </section>
