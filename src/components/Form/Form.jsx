@@ -15,8 +15,8 @@ function Form(props) {
         <h1 className="auth__title">{props.title}</h1>
         <div className="auth__inputs">
           {props.children}
-          <label className="auth__item">
-            <p className="auth__text">E-mail</p>
+          <label className="auth__item auth__text">
+            E-mail
             <input
               id="input-email"
               className="auth__input"
@@ -28,10 +28,10 @@ function Form(props) {
               onChange={handleChange}
               value={values.email || ""}
             />
-            <span className="input-email-error auth__error" type="text">{errors.email}</span>
+            <span className="input-email-error auth__error">{errors.email}</span>
           </label>
-          <label className="auth__item">
-            <p className="auth__text">Пароль</p>
+          <label className="auth__item auth__text">
+            Пароль
             <input
               className={`auth__input ${errors.password ? 'auth__input_type_red' : ''}`}
               id="input-password"
@@ -44,7 +44,7 @@ function Form(props) {
               onChange={handleChange}
               value={values.password || ""}
             />
-            <span className="input-password-error auth__error" type="text">{errors.password}</span>
+            <span className="input-password-error auth__error">{errors.password}</span>
           </label>
         </div>
       </form></>

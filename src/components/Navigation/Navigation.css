@@ -160,7 +160,7 @@
   opacity: .6;
 }
 
-.burger-menu__link-active {
+.burger-menu__link_type_active {
   border-bottom: 2px solid #FFF;
 }
 

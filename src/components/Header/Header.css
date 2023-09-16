@@ -44,7 +44,7 @@
 }
 @media screen and (max-width: 400px) {
   .header {
-    padding: 19px 4px;
+    padding: 19px 14px;
     box-sizing: border-box;
   }
 }

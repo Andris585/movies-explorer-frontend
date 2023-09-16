@@ -9,8 +9,8 @@ function Register() {
   return (
     <section className="auth">
       <Form title="Добро пожаловать!">
-        <label className="auth__item">
-          <p className="auth__text">Имя</p>
+        <label className="auth__item auth__text">
+          Имя
           <input
             className="auth__input"
             name="name"
@@ -23,7 +23,7 @@ function Register() {
             onChange={handleChange}
             value={values.name || ""}
           />
-          <span className="input-name-error auth__error" type="text">{errors.name}</span>
+          <span className="input-name-error auth__error">{errors.name}</span>
         </label>
       </Form>
       <div className="auth__container">

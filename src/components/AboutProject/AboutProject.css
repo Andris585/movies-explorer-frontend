@@ -113,8 +113,7 @@
 
 @media screen and (max-width: 800px) {
   .project {
-    padding: 90px 50px 90px;
-    max-width: 668px;
+    padding: 86px 50px;
   }
 
   .project__container {
@@ -134,6 +133,10 @@
   .project__time {
     padding-top: 93px;
   }
+}
+
+.project__time_type_green {
+  width: 21%;
 }
 
 @media screen and (max-width: 590px){
@@ -178,7 +181,7 @@
   }
 
   .project__time {
-    padding-top: 50px;
+    padding-top: 47px;
   }
 
   .project__time-title {
@@ -190,5 +193,9 @@
     font-size: 11px;
     line-height: normal;
     padding-top: 10px;
+  }
+
+  .project__time_type_green {
+    width: 43%;
   }
 }

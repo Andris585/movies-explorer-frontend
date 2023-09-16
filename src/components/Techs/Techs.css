@@ -86,8 +86,7 @@
 
 @media screen and (max-width: 800px) {
   .techs__container {
-    max-width: 668px;
-    padding: 91px 50px;
+    padding: 95px 50px;
   }
 
   .techs__content {

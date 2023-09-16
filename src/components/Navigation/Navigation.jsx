@@ -83,7 +83,7 @@ function Navigation() {
                   <Link
                     to="/"
                     className={`burger-menu__link ${
-                      pathname !== "/" ? "" : "burger-menu__link-active"
+                      pathname !== "/" ? "" : "burger-menu__link_type_active"
                     }`}
                   >
                     Главная
@@ -93,7 +93,7 @@ function Navigation() {
                   <Link
                     to="/movies"
                     className={`burger-menu__link ${
-                      pathname !== "/movies" ? "" : "burger-menu__link-active"
+                      pathname !== "/movies" ? "" : "burger-menu__link_type_active"
                     }`}
                   >
                     Фильмы
@@ -105,7 +105,7 @@ function Navigation() {
                     className={`burger-menu__link ${
                       pathname !== "/saved-movies"
                         ? ""
-                        : "burger-menu__link-active"
+                        : "burger-menu__link_type_active"
                     }`}
                   >
                     Сохраненные фильмы
@@ -116,7 +116,7 @@ function Navigation() {
                 <Link
                   to="/profile"
                   className={`burger-menu__link burger-menu__link_type_btn-profile ${
-                    pathname !== "/profile" ? "" : "burger-menu__link-active"
+                    pathname !== "/profile" ? "" : "burger-menu__link_type_active"
                   }`}
                 >
                   Аккаунт
