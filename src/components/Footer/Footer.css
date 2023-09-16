@@ -6,8 +6,12 @@
   max-width: 1280px;
   width: 100%;
   margin: 0 auto;
-  padding: 80px 70px 20px;
+  padding: 78px 70px 20px;
   box-sizing: border-box;
+}
+
+.footer_type_wide {
+  padding: 78px 40px 20px;
 }
 
 .footer__title {
