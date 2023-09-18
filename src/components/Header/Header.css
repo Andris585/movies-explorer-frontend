@@ -1,0 +1,50 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1140px;
+  width: 100%;
+  margin: auto;
+  padding: 18px 0;
+  box-sizing: border-box;
+}
+
+.header__link {
+  display: flex;
+}
+
+.header__logo {
+  max-width: 38px;
+  margin: 0;
+  padding: 0;
+  transition: opacity .4s linear;
+}
+
+.header__logo:hover {
+  cursor: pointer;
+  opacity: .6;
+}
+
+.header_type_login {
+  max-width: 1280px;
+  background-color: #073042;
+  padding: 19px 70px;
+}
+
+@media screen and (max-width: 900px) {
+  .header_type_login {
+    padding: 19px 30px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .header_type_login {
+    padding: 19px 14px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .header {
+    padding: 19px 14px;
+    box-sizing: border-box;
+  }
+}

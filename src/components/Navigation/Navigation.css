@@ -1,0 +1,267 @@
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.navigation__nav {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.navigation__list {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  gap: 16px;
+  margin: 0;
+  padding: 0 0 0 46px;
+}
+
+.navigation__link {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  text-align: right;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  color: #fff;
+  transition: opacity .4s linear;
+}
+
+.navigation__link:hover {
+  cursor: pointer;
+  opacity: .6;
+}
+
+.navigation__link_type_bold {
+  font-weight: 500;
+}
+
+.navigation__container {
+  display: flex;
+  align-items: center;
+}
+
+.navigation__img-container {
+  display: flex;
+  width: 26px;
+  height: 26px;
+  background: #313131;
+  border-radius: 50px;
+  margin: 0 2px 0 10px;
+  padding: 0;
+}
+
+.navigation__img {
+  object-fit: none;
+  object-position: center;
+}
+
+.navigation__burger-menu-btn {
+  display: none;
+}
+
+.burger__overlay {
+  visibility: visible;
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-height: 100vh;
+  min-width: 100vw;
+  background-color: rgba(0, 0, 0, .3);
+  transition: all 0.3s ease-in-out;
+  z-index: 1;
+}
+
+.burger-menu {
+  display: none;
+  visibility: visible;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: #202020;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  z-index: 12;
+  box-sizing: border-box;
+  transition: all 0.5s ease-in-out 0s;
+}
+
+.burger-menu__close-btn {
+  background-image: url(../../images/close.svg);
+  background-color: transparent;
+  background-size: cover;
+  position: absolute;
+  right: 22px;
+  top: 22px;
+  width: 30px;
+  height: 30px;
+  border: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: opacity .4s linear;
+}
+
+
+.burger-menu__close-btn:hover {
+  opacity: .8;
+  cursor: pointer;
+}
+
+.burger-menu__container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  margin: 0;
+  padding: 159px 0 0 0;
+}
+
+.burger-menu__list {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.burger-menu__link {
+  margin: 0;
+  padding: 0 0 5px 0;
+  color: #FFF;
+  text-align: center;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-decoration: none;
+  transition: opacity .7s linear;
+}
+
+.burger-menu__link:hover {
+  cursor: pointer;
+  opacity: .6;
+}
+
+.burger-menu__link_type_active {
+  border-bottom: 2px solid #FFF;
+}
+
+.burger-menu__profile-btn {
+  display: flex;
+  align-items: center;
+  margin-bottom: 90px;
+}
+
+.burger-menu__link_type_btn-profile {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  text-align: right;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 12px;
+  color: #fff;
+  transition: opacity .4s linear;
+}
+
+.burger-menu__img-container {
+  display: flex;
+  width: 26px;
+  height: 26px;
+  background: #313131;
+  border-radius: 50px;
+  margin: 0 2px 0 10px;
+  padding: 0;
+}
+
+.burger-menu__img {
+  object-fit: none;
+  object-position: center;
+}
+
+@media screen and (max-width: 768px) {
+  .navigation__nav {
+    display: none;
+  }
+
+  .navigation__burger-menu-btn {
+    display: block;
+    position: absolute;
+    right: 30px;
+    top: 15px;
+    margin: 0;
+    padding: 0;
+    transition: opacity .4s linear;
+  }
+  
+  .navigation__burger-menu-btn:hover {
+    cursor: pointer;
+    opacity: .8;
+  }
+
+  .burger-menu {
+    display: flex;
+    justify-content: center;
+    width: 520px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .navigation__nav {
+    display: none;
+  }
+
+  .burger-menu__container {
+    padding-top: 144px;
+  }
+
+  .burger-menu__list {
+    gap: 25px;
+  }
+
+  .burger-menu__close-btn {
+    right: 14px;
+    top: 14px;
+  }
+
+  .navigation__burger-menu-btn {
+    display: block;
+    position: absolute;
+    right: 14px;
+    top: 15px;
+    margin: 0;
+    padding: 0;
+    transition: opacity .4s linear;
+  }
+  
+  .navigation__burger-menu-btn:hover {
+    cursor: pointer;
+    opacity: .8;
+  }
+
+  .burger-menu {
+    display: flex;
+    justify-content: center;
+    width: 320px;
+  }
+}
