@@ -29,6 +29,16 @@
   padding: 0 0 13px 0;
 }
 
+/* .card__info:hover {
+  cursor: pointer;
+} */
+
+.card__info:hover .card__btn-delete {
+  background: url(../../images/delete.svg) center #313131;
+  background-repeat: no-repeat;
+  border-radius: 50px;
+}
+
 .card__title {
   width: 226px;
   height: 32px;
@@ -40,7 +50,7 @@
   line-height: normal;
 }
 
-.card__btn-save {
+.card__btn-like {
   background-image: url(../../images/like-white.svg);
   width: 24px;
   height: 24px;
@@ -53,9 +63,13 @@
   transition: opacity .4s linear;
 }
 
-.card__btn-save:hover {
+.card__btn-like:hover {
   opacity: .8;
   cursor: pointer;
+}
+
+.card__btn-like_type_active {
+  background-image: url(../../images/like-red.svg);
 }
 
 .card__btn-delete {
