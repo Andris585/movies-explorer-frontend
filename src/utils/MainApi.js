@@ -16,7 +16,6 @@ class MainApi {
       method: "POST",
       credentials: 'include',
       headers: {
-        Accept: "application/json",
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ name, email, password }),
@@ -28,7 +27,6 @@ class MainApi {
       method: "POST",
       credentials: 'include',
       headers: {
-        Accept: "application/json",
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ email, password }),
@@ -44,7 +42,6 @@ class MainApi {
       method: "GET",
       credentials: 'include',
       headers: {
-        Accept: "application/json",
         "Content-Type": "application/json",
       },
     }).then(this._checkResponse);
@@ -69,7 +66,6 @@ class MainApi {
       method: "GET",
       credentials: 'include',
       headers: {
-        Accept: "application/json",
         "Content-Type": "application/json",
       },
     }).then(this._checkResponse);
