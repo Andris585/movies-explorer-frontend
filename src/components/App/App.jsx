@@ -110,6 +110,7 @@ function App() {
       .login(email, password)
       .then((data) => {
         if (!data) {
+          setIsLoggedIn(false);
           return;
         }
         userDataRequest();
