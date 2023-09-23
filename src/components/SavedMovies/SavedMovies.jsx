@@ -2,6 +2,7 @@ import "./SavedMovies.css";
 import SearchForm from "../SearchForm/SearchForm";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import Preloader from "../Preloader/Preloader";
+import { useEffect } from "react";
 
 function SavedMovies({
   isLoading,
@@ -13,7 +14,13 @@ function SavedMovies({
   checkbox,
   messageSaved,
   searchSuccessSaved,
+  setSearchSavedStr
 }) {
+
+  useEffect(() => {
+    setSearchSavedStr("");
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <section className="saved-movies">

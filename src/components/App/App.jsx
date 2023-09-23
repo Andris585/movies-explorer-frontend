@@ -55,33 +55,6 @@ function App() {
   const [messageSaved, setMessageSaved] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
-  useEffect(() => {
-    checkToken();
-  }, []);
-
-  useEffect(() => {
-    setIsLoading(true);
-    if (isLoggedIn) {
-      mainApi
-        .getAllInfo()
-        .then(([data, movies]) => {
-          setCurrentUser(data);
-          setSavedMovies(movies);
-          setRenderedMovies(
-            JSON.parse(localStorage.getItem("allMovies")) || []
-          );
-          setSearchStr(localStorage.getItem("searchString") || "");
-          setIsLoading(false);
-        })
-        .catch((err) => {
-          console.log(err);
-        })
-        .finally(() => {
-          setIsLoading(false);
-        });
-    }
-  }, [isLoggedIn, currentUser._id]);
-
   function handleRegister(name, email, password) {
     mainApi
       .register(name, email, password)
@@ -147,6 +120,10 @@ function App() {
     userDataRequest();
   }
 
+  useEffect(() => {
+    checkToken();
+  }, []);
+
   function handleUpdateUserInfo(newUserInfo) {
     setErrorUpdateUserInfo("");
     setIsLoading(true);
@@ -196,6 +173,29 @@ function App() {
     localStorage.setItem("searchString", s);
   };
 
+  useEffect(() => {
+    setIsLoading(true);
+    if (isLoggedIn) {
+      mainApi
+        .getAllInfo()
+        .then(([data, movies]) => {
+          setCurrentUser(data);
+          setSavedMovies(movies);
+          setRenderedMovies(
+            JSON.parse(localStorage.getItem("allMovies")) || []
+          );
+          setSearchStr(localStorage.getItem("searchString") || "");
+          setIsLoading(false);
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+        .finally(() => {
+          setIsLoading(false);
+        });
+    }
+  }, [isLoggedIn, currentUser._id]);
+
   const submitSearchSaved = (s) => {
     setSearchSavedStr(s);
   };
@@ -242,7 +242,6 @@ function App() {
       (movie) => movie.duration <= FEATURETTE_DURATION
     );
     if (checkboxSaved) {
-      localStorage.setItem("checkboxSaved", checkboxSaved);
       setFilteredSavedMovies(searchedFeaturettes);
       if (searchedFeaturettes.length === 0) {
         setSearchSuccessSaved(false);
@@ -368,6 +367,7 @@ function App() {
                   checkbox={checkboxSaved}
                   messageSaved={messageSaved}
                   searchSuccessSaved={searchSuccessSaved}
+                  setSearchSavedStr={setSearchSavedStr}
                 />
               }
             />
