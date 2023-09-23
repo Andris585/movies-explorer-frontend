@@ -1,22 +1,10 @@
 .saved-movies {
   max-width: 1140px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
 }
 
-@media screen and (max-width: 1035px) {
-  .saved-movies {
-    max-width: 980px;
-  }
-}
-
-@media screen and (max-width: 950px) {
-  .saved-movies {
-    max-width: 708px;
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .saved-movies {
-    max-width: 300px;
-  }
+.saved-movies__search-error {
+  text-align: center;
 }

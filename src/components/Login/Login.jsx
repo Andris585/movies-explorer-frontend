@@ -5,7 +5,7 @@ import { useFormValidation } from "../../hooks/useFormValidation";
 import { REGEXP_EMAIL } from "../../utils/constants";
 
 function Login({ onLogin }) {
-  const {values, handleChange, errors, isValid} = useFormValidation();
+  const { values, handleChange, errors, isValid } = useFormValidation();
 
   function handleLoginSubmit(evt) {
     evt.preventDefault();
@@ -81,6 +81,6 @@ function Login({ onLogin }) {
       </Form>
     </section>
   );
-};
+}
 
 export default Login;

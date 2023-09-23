@@ -1,16 +1,17 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import searchIcon from "../../images/search.svg"
+import searchIcon from "../../images/search.svg";
 import "./SearchForm.css";
 import FilterCheckbox from "../FilterCheckbox/FilterCheckbox";
 import { useFormValidation } from "../../hooks/useFormValidation";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { VALIDATION_ERROR_MESSAGE } from '../../utils/constants';
+import { ERROR_MESSAGE } from "../../utils/constants";
 
 function SearchForm({ onSubmit, handleCheckboxClick, checkbox }) {
   const { pathname } = useLocation();
-  const {values, handleChange, isValid, setValues, setIsValid} = useFormValidation();
-  const [errorText, setErrorText] = useState(false);
+  const { values, handleChange, isValid, setValues, setIsValid } =
+    useFormValidation();
+  const [isEmpty, setIsEmpty] = useState(false);
 
   useEffect(() => {
     setIsValid(true);
@@ -26,13 +27,13 @@ function SearchForm({ onSubmit, handleCheckboxClick, checkbox }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (values.search || "") {
-      setErrorText(false);
-      onSubmit(values.search || "");
+    if (values.search) {
+      setIsEmpty(false);
+      onSubmit(values.search);
     } else {
-      setErrorText(true)
+      setIsEmpty(true);
     }
-  };
+  }
 
   return (
     <section className="search">
@@ -51,11 +52,21 @@ function SearchForm({ onSubmit, handleCheckboxClick, checkbox }) {
               onChange={handleChange}
               disabled={!isValid}
             />
-            {errorText && <span className={`${errorText ? "search__input-error search__input-error_visible " : "search__input-error"}`}>
-              {VALIDATION_ERROR_MESSAGE.SEARCH_FORM_ERROR}
-            </span>}
+            {isEmpty && (
+              <span
+                className={`search__input-error ${
+                  isEmpty
+                    ? "search__input-error_visible "
+                    : ""
+                }`}
+              >
+                {ERROR_MESSAGE.SEARCH_FORM_ERROR}
+              </span>
+            )}
           </div>
-          <button type="submit" className="search__btn" disabled={!isValid}>Найти</button>
+          <button type="submit" className="search__btn" disabled={!isValid}>
+            Найти
+          </button>
         </div>
         <div className="search__devider"></div>
         <div className="search__checkbox">
@@ -67,6 +78,6 @@ function SearchForm({ onSubmit, handleCheckboxClick, checkbox }) {
       </form>
     </section>
   );
-};
+}
 
 export default SearchForm;
