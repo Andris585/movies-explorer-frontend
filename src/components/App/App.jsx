@@ -83,7 +83,7 @@ function App() {
     else {
       navigate("/");
     }
-  }, [isLoggedIn, currentUser._id, loginError]);
+  }, [isLoggedIn, currentUser._id]);
 
   function handleRegister(name, email, password) {
     mainApi

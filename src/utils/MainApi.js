@@ -15,6 +15,7 @@ class MainApi {
     return fetch(`${this._baseUrl}signup`, {
       method: "POST",
       credentials: 'include',
+      withCredentials: true,
       headers: {
         "Content-Type": "application/json",
       },
@@ -26,6 +27,7 @@ class MainApi {
     return fetch(`${this._baseUrl}signin`, {
       method: "POST",
       credentials: 'include',
+      withCredentials: true,
       headers: {
         "Content-Type": "application/json",
       },
@@ -41,6 +43,7 @@ class MainApi {
     return fetch(`${this._baseUrl}users/me`, {
       method: "GET",
       credentials: 'include',
+      withCredentials: true,
       headers: {
         "Content-Type": "application/json",
       },
@@ -51,6 +54,7 @@ class MainApi {
     return fetch(`${this._baseUrl}users/me`, {
       method: "PATCH",
       credentials: 'include',
+      withCredentials: true,
       headers: {
         "Content-type": "application/json",
       },
@@ -65,6 +69,7 @@ class MainApi {
     return fetch(`${this._baseUrl}movies`, {
       method: "GET",
       credentials: 'include',
+      withCredentials: true,
       headers: {
         "Content-Type": "application/json",
       },
@@ -75,6 +80,7 @@ class MainApi {
     return fetch(`${this._baseUrl}movies`, {
       method: "POST",
       credentials: 'include',
+      withCredentials: true,
       headers: {
         "Content-type": "application/json",
       },
@@ -99,6 +105,7 @@ class MainApi {
     return fetch(`${this._baseUrl}movies/${_id}`, {
       method: "DELETE",
       credentials: 'include',
+      withCredentials: true,
       headers: {
         "Content-type": "application/json",
       },
@@ -109,6 +116,7 @@ class MainApi {
     return fetch(`${this._baseUrl}signout`, {
       method: "POST",
       credentials: 'include',
+      withCredentials: true,
       headers: {
         "Content-Type": "application/json",
       },
