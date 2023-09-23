@@ -121,7 +121,7 @@ class MainApi {
 }
 
 const mainApi = new MainApi({
-  baseUrl: "http://movie585.nomoredomainsrocks.ru/",
+  baseUrl: "http://localhost:4000/",
 });
 
 export default mainApi;
