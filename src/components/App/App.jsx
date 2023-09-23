@@ -55,6 +55,36 @@ function App() {
   const [messageSaved, setMessageSaved] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
+  useEffect(() => {
+    userDataRequest();
+  }, []);
+
+  useEffect(() => {
+    setIsLoading(true);
+    if (isLoggedIn) {
+      mainApi
+        .getAllInfo()
+        .then(([data, movies]) => {
+          setCurrentUser(data);
+          setSavedMovies(movies);
+          setRenderedMovies(
+            JSON.parse(localStorage.getItem("allMovies")) || []
+          );
+          setSearchStr(localStorage.getItem("searchString") || "");
+          setIsLoading(false);
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+        .finally(() => {
+          setIsLoading(false);
+        });
+    }
+    else {
+      navigate("/");
+    }
+  }, [isLoggedIn, currentUser._id]);
+
   function handleRegister(name, email, password) {
     mainApi
       .register(name, email, password)
@@ -98,6 +128,11 @@ function App() {
     mainApi.logout();
     setIsLoggedIn(false);
     localStorage.clear();
+    setSearchStr("");
+    setRenderedMovies([]);
+    setFilteredMovies([]);
+    setSavedMovies([]);
+    setFilteredSavedMovies([]);
     navigate("/", { replace: true });
   }
 
@@ -106,6 +141,7 @@ function App() {
       .getUserInfo()
       .then((data) => {
         if (!data) {
+          setIsLoggedIn(false);
           return;
         }
         setIsLoggedIn(true);
@@ -115,14 +151,6 @@ function App() {
         console.log(err);
       });
   }
-
-  function checkToken() {
-    userDataRequest();
-  }
-
-  useEffect(() => {
-    checkToken();
-  }, []);
 
   function handleUpdateUserInfo(newUserInfo) {
     setErrorUpdateUserInfo("");
@@ -173,29 +201,6 @@ function App() {
     localStorage.setItem("searchString", s);
   };
 
-  useEffect(() => {
-    setIsLoading(true);
-    if (isLoggedIn) {
-      mainApi
-        .getAllInfo()
-        .then(([data, movies]) => {
-          setCurrentUser(data);
-          setSavedMovies(movies);
-          setRenderedMovies(
-            JSON.parse(localStorage.getItem("allMovies")) || []
-          );
-          setSearchStr(localStorage.getItem("searchString") || "");
-          setIsLoading(false);
-        })
-        .catch((err) => {
-          console.log(err);
-        })
-        .finally(() => {
-          setIsLoading(false);
-        });
-    }
-  }, [isLoggedIn, currentUser._id]);
-
   const submitSearchSaved = (s) => {
     setSearchSavedStr(s);
   };
@@ -209,6 +214,9 @@ function App() {
   }
 
   function searchMovies() {
+    if (!renderedMovies.length) {
+      return []
+    }
     const searchedMovies = filterMovies(searchStr, renderedMovies);
     const searchedFeaturettes = searchedMovies.filter(
       (movie) => movie.duration <= FEATURETTE_DURATION
@@ -237,6 +245,9 @@ function App() {
   }
 
   function searchSavedMovies() {
+    if (!savedMovies.length) {
+      return []
+    }
     const searchedMovies = filterMovies(searchSavedStr, savedMovies);
     const searchedFeaturettes = searchedMovies.filter(
       (movie) => movie.duration <= FEATURETTE_DURATION
@@ -264,7 +275,7 @@ function App() {
 
   useEffect(() => {
     searchMovies();
-  }, [searchStr, checkbox]);
+  }, [renderedMovies, searchStr, checkbox]);
 
   useEffect(() => {
     searchSavedMovies();
