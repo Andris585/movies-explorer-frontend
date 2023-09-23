@@ -14,7 +14,7 @@ class MainApi {
   register(name, email, password) {
     return fetch(`${this._baseUrl}signup`, {
       method: "POST",
-      withCredentials: true,
+      credentials: 'include',
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
@@ -26,7 +26,7 @@ class MainApi {
   login(email, password) {
     return fetch(`${this._baseUrl}signin`, {
       method: "POST",
-      withCredentials: true,
+      credentials: 'include',
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
@@ -42,7 +42,7 @@ class MainApi {
   getUserInfo() {
     return fetch(`${this._baseUrl}users/me`, {
       method: "GET",
-      withCredentials: true,
+      credentials: 'include',
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
@@ -53,7 +53,7 @@ class MainApi {
   editUserProfile(data) {
     return fetch(`${this._baseUrl}users/me`, {
       method: "PATCH",
-      withCredentials: true,
+      credentials: 'include',
       headers: {
         "Content-type": "application/json",
       },
@@ -67,7 +67,7 @@ class MainApi {
   getMovies() {
     return fetch(`${this._baseUrl}movies`, {
       method: "GET",
-      withCredentials: true,
+      credentials: 'include',
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
@@ -78,7 +78,7 @@ class MainApi {
   createMovie(movie) {
     return fetch(`${this._baseUrl}movies`, {
       method: "POST",
-      withCredentials: true,
+      credentials: 'include',
       headers: {
         "Content-type": "application/json",
       },
@@ -102,7 +102,7 @@ class MainApi {
   deleteMovie(_id) {
     return fetch(`${this._baseUrl}movies/${_id}`, {
       method: "DELETE",
-      withCredentials: true,
+      credentials: 'include',
       headers: {
         "Content-type": "application/json",
       },
@@ -112,7 +112,7 @@ class MainApi {
   logout() {
     return fetch(`${this._baseUrl}signout`, {
       method: "POST",
-      withCredentials: true,
+      credentials: 'include',
       headers: {
         "Content-Type": "application/json",
       },
