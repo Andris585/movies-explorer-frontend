@@ -113,9 +113,11 @@ function App() {
           setIsLoggedIn(false);
           return;
         }
-        userDataRequest();
-        setIsLoggedIn(true);
-        navigate("/movies", { replace: true });
+        else {
+          userDataRequest();
+          setIsLoggedIn(true);
+          navigate("/movies", { replace: true });
+        }
       })
       .catch((err) => {
         setIsSuccessful(false);
