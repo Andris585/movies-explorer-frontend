@@ -83,7 +83,7 @@ function App() {
     else {
       navigate("/");
     }
-  }, [isLoggedIn, currentUser._id]);
+  }, [isLoggedIn, currentUser._id, loginError]);
 
   function handleRegister(name, email, password) {
     mainApi
@@ -114,13 +114,14 @@ function App() {
           return;
         }
         else {
-          userDataRequest();
           setIsLoggedIn(true);
+          userDataRequest();
           navigate("/movies", { replace: true });
         }
       })
       .catch((err) => {
         setIsSuccessful(false);
+        setIsLoggedIn(false);
         setLoginError(err);
         console.log(err);
         setIsInfoPopupOpen(true);
