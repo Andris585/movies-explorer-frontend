@@ -23,10 +23,7 @@ import {
   useNavigate,
 } from "react-router-dom";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
-import {
-  ERROR_MESSAGE,
-  FEATURETTE_DURATION,
-} from "../../utils/constants";
+import { ERROR_MESSAGE, FEATURETTE_DURATION } from "../../utils/constants";
 
 function App() {
   const { pathname } = useLocation();
@@ -79,8 +76,7 @@ function App() {
         .finally(() => {
           setIsLoading(false);
         });
-    }
-    else {
+    } else {
       navigate("/");
     }
   }, [isLoggedIn, currentUser._id]);
@@ -112,8 +108,7 @@ function App() {
         if (!data) {
           setIsLoggedIn(false);
           return;
-        }
-        else {
+        } else {
           setIsLoggedIn(true);
           userDataRequest();
           navigate("/movies", { replace: true });
@@ -163,8 +158,8 @@ function App() {
       .editUserProfile(newUserInfo)
       .then((res) => {
         setCurrentUser(res);
-        setIsInfoPopupOpen(true);
         setIsSuccessful(true);
+        setIsInfoPopupOpen(true);
       })
       .catch((err) => {
         setErrorUpdateUserInfo(err);
@@ -219,7 +214,7 @@ function App() {
 
   function searchMovies() {
     if (!renderedMovies.length) {
-      return []
+      return [];
     }
     const searchedMovies = filterMovies(searchStr, renderedMovies);
     const searchedFeaturettes = searchedMovies.filter(
@@ -250,7 +245,7 @@ function App() {
 
   function searchSavedMovies() {
     if (!savedMovies.length) {
-      return []
+      return [];
     }
     const searchedMovies = filterMovies(searchSavedStr, savedMovies);
     const searchedFeaturettes = searchedMovies.filter(

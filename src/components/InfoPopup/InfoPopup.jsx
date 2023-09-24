@@ -21,7 +21,7 @@ function InfoPopup({
   );
   usePopupClose(isOpen, onClose);
 
-  function registerError() {
+  function catchError() {
     if (pathname === "/signup" && registrationError === "Ошибка: 409") {
       setError(ERROR_MESSAGE.USER_EMAIL_EXISTS);
     }
@@ -33,7 +33,7 @@ function InfoPopup({
     }
   }
   useEffect(() => {
-    registerError();
+    catchError();
   }, [isOpen]);
 
   return (
