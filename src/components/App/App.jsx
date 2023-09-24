@@ -86,8 +86,6 @@ function App() {
       .register(name, email, password)
       .then(() => {
         handleLogin(email, password);
-      })
-      .then(() => {
         setIsSuccessful(true);
       })
       .catch((err) => {
