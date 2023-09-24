@@ -71,9 +71,9 @@ function Login({ onLogin }) {
           >
             Войти
           </button>
-          <p className="auth__already-registered-text">
+          <p className="auth__redirect-text">
             Еще не зарегистрированы?&nbsp;&nbsp;
-            <Link to="/signup" className="auth__send-link">
+            <Link to="/signup" className="auth__redirect-link">
               Регистрация
             </Link>
           </p>

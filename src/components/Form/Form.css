@@ -8,7 +8,7 @@
 
 .auth__link-logo {
   display: flex;
-  transition: opacity .7s linear;
+  transition: opacity .4s linear;
 }
 
 .auth__link-logo:hover {
@@ -130,7 +130,7 @@
   font-weight: 500;
   line-height: normal;
   color: #FFF;
-  transition: opacity .7s linear;
+  transition: opacity .4s linear;
 }
 
 .auth__btn:hover {
@@ -138,7 +138,7 @@
   opacity: .8;
 }
 
-.auth__already-registered-text {
+.auth__redirect-text {
   margin: 0;
   padding: 0;
   text-align: center;
@@ -149,7 +149,7 @@
   color: #8B8B8B;
 }
 
-.auth__already-registered-link {
+.auth__redirect-link {
   margin: 0;
   padding: 0;
   text-align: center;
@@ -159,10 +159,10 @@
   line-height: normal;
   text-decoration: none;
   color: #4285F4;
-  transition: opacity .7s linear;
+  transition: opacity .4s linear;
 }
 
-.auth__already-registered-link:hover {
+.auth__redirect-link:hover {
   cursor: pointer;
   opacity: .6;
 }
@@ -207,11 +207,11 @@
     margin-bottom: 14px;
   }
 
-  .auth__already-registered-text {
+  .auth__redirect-text {
     font-size: 12px;
   }
 
-  .auth__already-registered-link {
+  .auth__redirect-link {
     font-size: 12px;
   }
 }

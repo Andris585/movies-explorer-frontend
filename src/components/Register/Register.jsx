@@ -90,9 +90,9 @@ function Register({ onRegister }) {
           >
             Зарегистрироваться
           </button>
-          <p className="auth__already-registered-text">
+          <p className="auth__redirect-text">
             Уже зарегистрированы?&nbsp;
-            <Link to="/signin" className="auth__already-registered-link">
+            <Link to="/signin" className="auth__redirect-link">
               Войти
             </Link>
           </p>
