@@ -4,11 +4,16 @@ import { Link } from "react-router-dom";
 import { useFormValidation } from "../../hooks/useFormValidation";
 import { REGEXP_EMAIL, REGEXP_NAME } from "../../utils/constants";
 
-function Register({ onRegister }) {
+function Register({ onRegister, isDisabled }) {
   const { values, errors, isValid, handleChange } = useFormValidation();
+  
+  function disableSubmit(){
+    document.querySelector(".auth__btn").setAttribute("disabled", "true");
+  }
 
   function handleRegisterSubmit(evt) {
     evt.preventDefault();
+    disableSubmit();
     const { name, email, password } = values;
     onRegister(name, email, password);
   }
@@ -37,6 +42,7 @@ function Register({ onRegister }) {
               onChange={handleChange}
               value={values.name || ""}
               autoComplete="off"
+              disabled={isDisabled}
             />
             <span className="input-name-error auth__error">{errors.name}</span>
           </label>
@@ -54,6 +60,7 @@ function Register({ onRegister }) {
               onChange={handleChange}
               value={values.email || ""}
               autoComplete="off"
+              disabled={isDisabled}
             />
             <span className="input-email-error auth__error" type="text">
               {errors.email}
@@ -75,6 +82,7 @@ function Register({ onRegister }) {
               onChange={handleChange}
               value={values.password || ""}
               autoComplete="off"
+              disabled={isDisabled}
             />
             <span className="input-password-error auth__error" type="text">
               {errors.password}

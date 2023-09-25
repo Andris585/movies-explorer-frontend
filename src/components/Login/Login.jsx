@@ -4,11 +4,16 @@ import "../Form/Form.css";
 import { useFormValidation } from "../../hooks/useFormValidation";
 import { REGEXP_EMAIL } from "../../utils/constants";
 
-function Login({ onLogin }) {
+function Login({ onLogin, isDisabled }) {
   const { values, handleChange, errors, isValid } = useFormValidation();
+
+  function disableSubmit(){
+    document.querySelector(".auth__btn").setAttribute("disabled", "true");
+  }
 
   function handleLoginSubmit(evt) {
     evt.preventDefault();
+    disableSubmit();
     const { email, password } = values;
     onLogin(email, password);
   }
@@ -36,6 +41,7 @@ function Login({ onLogin }) {
               onChange={handleChange}
               value={values.email || ""}
               autoComplete="off"
+              disabled={isDisabled}
             />
             <span className="input-email-error auth__error" type="text">
               {errors.email}
@@ -57,6 +63,7 @@ function Login({ onLogin }) {
               onChange={handleChange}
               value={values.password || ""}
               autoComplete="off"
+              disabled={isDisabled}
             />
             <span className="input-password-error auth__error" type="text">
               {errors.password}

@@ -3,7 +3,7 @@ import "./PageNotFound.css";
 
 function PageNotFound() {
   const navigate = useNavigate();
-  const getBack = () => navigate(-1);
+  const getBack = () => navigate(-2);
 
   return (
     <section className="page-not-found">

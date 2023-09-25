@@ -51,10 +51,17 @@ function App() {
   const [message, setMessage] = useState("");
   const [messageSaved, setMessageSaved] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [isDisabled, setIsDisabled] = useState(false);
 
   useEffect(() => {
     userDataRequest();
   }, []);
+
+  useEffect(() => {
+    if (pathname !== "/saved-movies") {
+      setCheckboxSaved(false);
+    }
+  });
 
   useEffect(() => {
     setIsLoading(true);
@@ -82,6 +89,7 @@ function App() {
   }, [isLoggedIn, currentUser._id]);
 
   function handleRegister(name, email, password) {
+    setIsDisabled(true);
     mainApi
       .register(name, email, password)
       .then(() => {
@@ -92,6 +100,7 @@ function App() {
         console.log(err);
         setRegistrationError(err);
         setIsSuccessful(false);
+        setIsDisabled(false);
       })
       .finally(() => {
         setIsInfoPopupOpen(true);
@@ -174,20 +183,22 @@ function App() {
     setIsInfoPopupOpen(false);
   }
 
-  const getAllMovies = async () => {
-    try {
+  const getAllMovies = () => {
       setIsLoading(true);
-      const allMovies = await moviesApi.getAllMovies();
-      localStorage.setItem("allMovies", JSON.stringify(allMovies));
-      setRenderedMovies(allMovies);
-      setErrorMessage("");
-      setIsLoading(false);
-    } catch (err) {
+      moviesApi
+      .getAllMovies()
+      .then((allMovies) => {
+        localStorage.setItem("allMovies", JSON.stringify(allMovies));
+        setRenderedMovies(allMovies);
+        setErrorMessage("");
+        setIsLoading(false);
+      })
+      .catch((err) => {
       setSearchSuccess(false);
       setErrorMessage(ERROR_MESSAGE.SERVER_ERROR_ON_SEARCH);
       console.log(err);
       setIsLoading(false);
-    }
+    })
   };
 
   const submitSearch = (s) => {
@@ -325,7 +336,7 @@ function App() {
                 isLoggedIn ? (
                   <Navigate to="/movies" replace />
                 ) : (
-                  <Register onRegister={handleRegister} />
+                  <Register onRegister={handleRegister} isDisabled={isDisabled}/>
                 )
               }
             />
@@ -335,7 +346,7 @@ function App() {
                 isLoggedIn ? (
                   <Navigate to="/movies" replace />
                 ) : (
-                  <Login onLogin={handleLogin} isLoading={isLoading} />
+                  <Login onLogin={handleLogin} isDisabled={isDisabled}/>
                 )
               }
             />

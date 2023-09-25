@@ -29,8 +29,8 @@ function MoviesCardList({
   );
   const [width, setWidth] = useState(window.innerWidth);
 
-  window.addEventListener("resize", function (e) {
-    setTimeout((e) => {
+  window.addEventListener("resize", function () {
+    setTimeout(() => {
       setWidth(window.innerWidth);
     }, 100);
   });
