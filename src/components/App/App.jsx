@@ -53,6 +53,7 @@ function App() {
   const [errorMessage, setErrorMessage] = useState("");
   const [isDisabled, setIsDisabled] = useState(false);
 
+
   useEffect(() => {
     userDataRequest();
   }, []);
@@ -104,6 +105,7 @@ function App() {
       })
       .finally(() => {
         setIsInfoPopupOpen(true);
+        setIsDisabled(false);
       });
   }
 
@@ -305,7 +307,6 @@ function App() {
       .deleteMovie(movie._id)
       .then(() => {
         const saveMovies = savedMovies.filter((m) => m._id !== movie._id);
-        console.log(saveMovies);
         setSavedMovies(saveMovies);
       })
       .catch((err) => {

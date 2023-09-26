@@ -11,11 +11,17 @@ function Register({ onRegister, isDisabled }) {
     document.querySelector(".auth__btn").setAttribute("disabled", "true");
   }
 
+  let notEmpty = false;
+
   function handleRegisterSubmit(evt) {
     evt.preventDefault();
-    disableSubmit();
-    const { name, email, password } = values;
-    onRegister(name, email, password);
+    notEmpty = document.querySelector(".auth__form").checkValidity();
+    if (notEmpty === true) {
+      disableSubmit();
+      const { name, email, password } = values;
+      onRegister(name, email, password);
+      notEmpty = false;
+    }
   }
 
   return (

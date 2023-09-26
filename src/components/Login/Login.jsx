@@ -11,11 +11,20 @@ function Login({ onLogin, isDisabled }) {
     document.querySelector(".auth__btn").setAttribute("disabled", "true");
   }
 
+  let notEmpty = false;
+
   function handleLoginSubmit(evt) {
     evt.preventDefault();
-    disableSubmit();
-    const { email, password } = values;
-    onLogin(email, password);
+    notEmpty = document.querySelector(".auth__form").checkValidity();
+    if (notEmpty === true) {
+      disableSubmit();
+      const { email, password } = values;
+      onLogin(email, password);
+      notEmpty = false;
+    }
+    else {
+      return;
+    }
   }
 
   return (

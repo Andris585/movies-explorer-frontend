@@ -21,11 +21,19 @@ function MoviesCard({
 
   function handleSaveMovies() {
     if (isSavedMovie) {
-      handleDeleteMovie(savedMovies.filter((i) => i.movieId === movie.id)[0]);
-      setIsSavedMovie(false);
+      if (handleDeleteMovie(savedMovies.filter((i) => i.movieId === movie.id)[0])) {
+        setIsSavedMovie(false)
+      }
+      else {
+        return;
+      }
     } else {
-      handleSaveMovie(movie);
-      setIsSavedMovie(true);
+      if (handleSaveMovie(movie)) {
+        setIsSavedMovie(true);
+      }
+      else {
+        return;
+      }
     }
   }
 
