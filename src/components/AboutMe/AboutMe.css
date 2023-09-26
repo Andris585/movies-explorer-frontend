@@ -132,6 +132,7 @@
     flex-direction: column-reverse;
     align-items: center;
   }
+
   .about-me__avatar {
     display: block;
     border-radius: 12px;

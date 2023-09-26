@@ -14,6 +14,6 @@ function Main() {
       <Portfolio />
     </>
   );
-};
+}
 
 export default Main;

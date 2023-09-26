@@ -12,7 +12,7 @@ function Navigation() {
   function handleBurgerMenuClick() {
     setIsBurger(!isBurger);
     setStatusBurgerMenu(!statusBurgerMenu);
-  };
+  }
 
   useEffect(() => {
     setIsBurger(false);
@@ -93,7 +93,9 @@ function Navigation() {
                   <Link
                     to="/movies"
                     className={`burger-menu__link ${
-                      pathname !== "/movies" ? "" : "burger-menu__link_type_active"
+                      pathname !== "/movies"
+                        ? ""
+                        : "burger-menu__link_type_active"
                     }`}
                   >
                     Фильмы
@@ -116,7 +118,9 @@ function Navigation() {
                 <Link
                   to="/profile"
                   className={`burger-menu__link burger-menu__link_type_btn-profile ${
-                    pathname !== "/profile" ? "" : "burger-menu__link_type_active"
+                    pathname !== "/profile"
+                      ? ""
+                      : "burger-menu__link_type_active"
                   }`}
                 >
                   Аккаунт
@@ -135,6 +139,6 @@ function Navigation() {
       )}
     </div>
   );
-};
+}
 
 export default Navigation;

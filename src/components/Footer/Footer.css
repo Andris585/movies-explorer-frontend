@@ -11,7 +11,8 @@
 }
 
 .footer_type_wide {
-  padding: 78px 40px 20px;
+  max-width: 1140px;
+  padding: 78px 0 20px;
 }
 
 .footer__title {
@@ -76,14 +77,11 @@
 
 @media screen and (max-width: 800px) {
   .footer {
-    padding: 62px 30px 20px;
+    padding: 62px 0 20px;
   }
 }
 
 @media screen and (max-width: 450px) {
-  .footer {
-    padding: 0 18px 0;
-  }
   .footer__title {
     width: 300px;
     padding-bottom: 21px;
